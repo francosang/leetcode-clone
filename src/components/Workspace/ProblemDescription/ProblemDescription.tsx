@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CircleSkeleton from "@/components/Skeletons/CircleSkeleton";
 import RectangleSkeleton from "@/components/Skeletons/RectangleSkeleton";
 import { Problem } from "@/utils/types/problem";
@@ -159,11 +160,6 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solve
 						</div>
 						{!loading && currentProblem && (
 							<div className='flex items-center mt-3'>
-								<div
-									className={`${problemDifficultyClass} inline-block rounded-[21px] bg-opacity-[.15] px-2.5 py-1 text-xs font-medium capitalize `}
-								>
-									{currentProblem.difficulty}
-								</div>
 								{(solved || _solved) && (
 									<div className='rounded p-[3px] ml-4 text-lg transition-colors duration-200 text-green-s text-dark-green-s'>
 										<BsCheck2Circle />
@@ -199,7 +195,7 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solve
 							{problem.examples.map((example, index) => (
 								<div key={example.id}>
 									<p className='font-medium text-white '>Example {index + 1}: </p>
-									{example.img && <img src={example.img} alt='' className='mt-3' />}
+									{example.img && <Image src={example.img} alt='' className='mt-3' />}
 									<div className='example-card'>
 										<pre>
 											<strong className='text-white'>Input: </strong> {example.inputText}

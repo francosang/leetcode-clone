@@ -66,6 +66,11 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 						setSuccess(false);
 					}, 4000);
 
+					const solved = localStorage.getItem(`solved-problems`);
+					const solvedProblems = solved ? JSON.parse(solved) : [];
+					solvedProblems.push(pid);
+					localStorage.setItem(`solved-problems`, JSON.stringify(solvedProblems));
+
 					// const userRef = doc(firestore, "users", user.uid);
 					// await updateDoc(userRef, {
 					// 	solvedProblems: arrayUnion(pid),
@@ -94,13 +99,8 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 	};
 
 	useEffect(() => {
-		setUserCode(problem.starterCode);
-		// const code = localStorage.getItem(`code-${pid}`);
-		// if (user) {
-		// 	setUserCode(code ? JSON.parse(code) : problem.starterCode);
-		// } else {
-		// 	setUserCode(problem.starterCode);
-		// }
+		const code = localStorage.getItem(`code-${pid}`);
+		setUserCode(code ? JSON.parse(code) : problem.starterCode);
 	}, [pid, problem.starterCode]);
 
 	const onChange = (value: string) => {

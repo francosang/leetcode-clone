@@ -57,6 +57,4 @@ export const jumpGame: Problem = {
 	handlerFunction: jumpGameHandler,
 	starterFunctionName: "function canJump(",
 	order: 3,
-	difficulty: "Easy",
-	category: "Categoria 1"
 };

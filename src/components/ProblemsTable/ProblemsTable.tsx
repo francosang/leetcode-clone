@@ -18,7 +18,6 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 	});
 	const problems = useGetProblems(setLoadingProblems);
 	const solvedProblems = useGetSolvedProblems();
-	console.log("solvedProblems", solvedProblems);
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" });
 	};
@@ -36,12 +35,6 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 		<>
 			<tbody className='text-white'>
 				{problems.map((problem, idx) => {
-					const difficulyColor =
-						problem.difficulty === "Easy"
-							? "text-dark-green-s"
-							: problem.difficulty === "Medium"
-							? "text-dark-yellow"
-							: "text-dark-pink";
 					return (
 						<tr className={`${idx % 2 == 1 ? "bg-dark-layer-1" : ""}`} key={problem.id}>
 							<th className='px-2 py-4 font-medium whitespace-nowrap text-dark-green-s'>
@@ -65,8 +58,6 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 									</Link>
 								)}
 							</td>
-							<td className={`px-6 py-4 ${difficulyColor}`}>{problem.difficulty}</td>
-							<td className={"px-6 py-4"}>{problem.category}</td>
 							<td className={"px-6 py-4"}>
 								{problem.videoId ? (
 									<AiFillYoutube
@@ -77,7 +68,7 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ setLoadingProblems }) => 
 										}
 									/>
 								) : (
-									<p className='text-gray-400'>Coming soon</p>
+									<p className='text-gray-400'>Muy pronto...</p>
 								)}
 							</td>
 						</tr>
@@ -150,7 +141,11 @@ function useGetSolvedProblems() {
 		// };
 
 		// if (user) getSolvedProblems();
-		setSolvedProblems([])
+
+		const solved = localStorage.getItem(`solved-problems`);
+		const solvedProblems = solved ? JSON.parse(solved) : [];
+
+		setSolvedProblems(solvedProblems)
 	}, []);
 
 	return solvedProblems;

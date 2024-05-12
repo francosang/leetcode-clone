@@ -17,8 +17,6 @@ export type Problem = {
 	starterCode: string;
 	handlerFunction: ((fn: any) => boolean) | string;
 	starterFunctionName: string;
-	difficulty: "Easy" | "Medium" | "Hard";
 	link?: string;
-	category: string;
 	videoId?: string;
 };
