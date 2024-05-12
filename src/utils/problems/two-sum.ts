@@ -1,8 +1,8 @@
 import assert from "assert";
 import { Problem } from "../types/problem";
 
-const starterCodeTwoSum = `function twoSum(nums,target){
-  // Write your code here
+const starterCodeTwoSum = `function dosSuma(numeros, resultado) {
+  // Escribe tu código aquí
 };`;
 
 // checks if the user has the correct code
@@ -37,32 +37,31 @@ const handlerTwoSum = (fn: any) => {
 
 export const twoSum: Problem = {
 	id: "two-sum",
-	title: "1. Two Sum",
+	title: "1. Dos Suma",
 	problemStatement: `<p class='mt-3'>
-  Given an array of integers <code>nums</code> and an integer <code>target</code>, return
-  <em>indices of the two numbers such that they add up to</em> <code>target</code>.
+  Dado un array de enteros <code>numeros</code> y un entero <code>objetivo</code>, retorna los
+  <em>indices</em> de los dos números que sumados den <code>objetivo</code>.
 </p>
 <p class='mt-3'>
-  You may assume that each input would have <strong>exactly one solution</strong>, and you
-  may not use thesame element twice.
-</p>
-<p class='mt-3'>You can return the answer in any order.</p>`,
+  Puedes asumir que cada input tiene <strong>exactamente una solución</strong>, y no puedes
+  usar el mismo elemento dos veces.
+</p>`,
 	examples: [
 		{
 			id: 1,
-			inputText: "nums = [2,7,11,15], target = 9",
+			inputText: "numeros = [2,7,11,15], objetivo = 9",
 			outputText: "[0,1]",
-			explanation: "Because nums[0] + nums[1] == 9, we return [0, 1].",
+			explanation: "Porque numeros[0] + numeros[1] == 9, retornamos [0, 1].",
 		},
 		{
 			id: 2,
-			inputText: "nums = [3,2,4], target = 6",
+			inputText: "numeros = [3,2,4], objetivo = 6",
 			outputText: "[1,2]",
-			explanation: "Because nums[1] + nums[2] == 6, we return [1, 2].",
+			explanation: "Porque numeros[1] + numeros[2] == 6, retornamos [1, 2].",
 		},
 		{
 			id: 3,
-			inputText: " nums = [3,3], target = 6",
+			inputText: "numeros = [3,3], objetivo = 6",
 			outputText: "[0,1]",
 		},
 	],
@@ -74,10 +73,10 @@ export const twoSum: Problem = {
 <code>-10 ≤ target ≤ 10</code>
 </li>
 <li class='mt-2 text-sm'>
-<strong>Only one valid answer exists.</strong>
+<strong>Solo existe una respuesta valida.</strong>
 </li>`,
 	handlerFunction: handlerTwoSum,
 	starterCode: starterCodeTwoSum,
 	order: 1,
-	starterFunctionName: "function twoSum(",
+	starterFunctionName: "function dosSuma(",
 };
