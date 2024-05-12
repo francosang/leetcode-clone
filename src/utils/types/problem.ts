@@ -17,16 +17,8 @@ export type Problem = {
 	starterCode: string;
 	handlerFunction: ((fn: any) => boolean) | string;
 	starterFunctionName: string;
-};
-
-export type DBProblem = {
-	id: string;
-	title: string;
-	category: string;
-	difficulty: string;
-	likes: number;
-	dislikes: number;
-	order: number;
-	videoId?: string;
+	difficulty: "Easy" | "Medium" | "Hard";
 	link?: string;
+	category: string;
+	videoId?: string;
 };
